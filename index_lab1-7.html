@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning Labs</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #2563eb;
+        }
+
+        .lab {
+            background: white;
+            padding: 25px;
+            margin: 25px auto;
+            max-width: 900px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #00000012;
+        }
+
+        /* Lab 1 */
+        .static-box,
+        .relative-box {
+            width: 180px;
+            padding: 20px;
+            margin: 10px;
+            color: white;
+            background: #2563eb;
+        }
+
+        .static-box {
+            position: static;
+        }
+
+        .relative-box {
+            position: relative;
+            top: 30px;
+            left: 30px;
+            background: #16a34a;
+        }
+
+        /* Lab 2 */
+        .parent {
+            position: relative;
+            height: 250px;
+            border: 3px dashed #64748b;
+            background: #f8fafc;
+        }
+
+        .child {
+            position: absolute;
+            padding: 12px;
+            background: #f97316;
+            color: white;
+            border-radius: 6px;
+        }
+
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+
+        .top-right {
+            top: 10px;
+            right: 10px;
+        }
+
+        .bottom-left {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        /* Lab 3 */
+        .notification {
+            position: relative;
+            display: inline-block;
+            font-size: 50px;
+            margin: 20px;
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -12px;
+            z-index: 1;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            font-size: 14px;
+            padding: 5px 9px;
+        }
+
+        /* Lab 4 */
+        .demo-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 60px;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0 25px;
+        }
+
+        .fixed-demo-content {
+            padding-top: 60px;
+            line-height: 2;
+        }
+
+        /* Lab 5 */
+        .sticky-section {
+            height: 180px;
+            background: #e2e8f0;
+            margin-bottom: 15px;
+        }
+
+        .sticky-title {
+            position: sticky;
+            top: 0;
+            padding: 15px;
+            background: #7c3aed;
+            color: white;
+            z-index: 5;
+        }
+
+        .sticky-section p {
+            padding: 15px;
+        }
+
+        /* Lab 6 */
+        .offset-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #0f172a;
+            color: white;
+        }
+
+        .offset-demo {
+            padding-top: 60px;
+        }
+
+        .offset-sticky {
+            position: sticky;
+            top: 60px;
+            padding: 15px;
+            background: #16a34a;
+            color: white;
+            z-index: 10;
+        }
+
+        /* Lab 7 */
+        .fab {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background: #2563eb;
+            color: white;
+            font-size: 30px;
+            box-shadow: 0 5px 15px #00000040;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 2000;
+        }
+
+        .fab:hover {
+            background: #1d4ed8;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 600px) {
+            .lab {
+                margin: 15px;
+                padding: 15px;
+            }
+
+            .child {
+                font-size: 12px;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Positioning Practical Labs</h1>
+
+    <section class="lab">
+        <h2>Lab 1: Static vs Relative</h2>
+        <p>Static Box មិនផ្លាស់ទីតាម top និង left ទេ។</p>
+        <div class="static-box">Static Box</div>
+        <div class="relative-box">Relative Box</div>
+        <p>Relative Box ផ្លាស់ទី 30px ចុះក្រោម និង 30px ទៅស្ដាំ។</p>
+    </section>
+
+    <section class="lab">
+        <h2>Lab 2: Parent + Absolute 4 Corners</h2>
+        <div class="parent">
+            <div class="child top-left">Top Left</div>
+            <div class="child top-right">Top Right</div>
+            <div class="child bottom-left">Bottom Left</div>
+            <div class="child bottom-right">Bottom Right</div>
+        </div>
+    </section>
+
+    <section class="lab">
+        <h2>Lab 3: Notification Badge</h2>
+        <div class="notification">
+            🔔
+            <span class="badge"></span>
+        </div>
+        <p>Badge ប្រើ absolute ដើម្បីបង្ហាញលេខនៅជ្រុងស្ដាំលើ Icon។</p>
+    </section>
+
+    <section class="lab">
+        <h2>Lab 4: Fixed Navbar & Scroll</h2>
+        <p>សូម Scroll ទំព័រ ដើម្បីសង្កេត Navbar ដែលនៅជាប់ផ្នែកខាងលើ។</p>
+        <div class="demo-navbar">Fixed Navigation Bar</div>
+
+        <div class="fixed-demo-content">
+            <p>Content 1: Lorem ipsum dolor sit amet.</p>
+            <p>Content 2: Lorem ipsum dolor sit amet.</p>
+            <p>Content 3: Lorem ipsum dolor sit amet.</p>
+            <p>Content 4: Lorem ipsum dolor sit amet.</p>
+            <p>Content 5: Lorem ipsum dolor sit amet.</p>
+            <p>Content 6: Lorem ipsum dolor sit amet.</p>
+            <p>Content 7: Lorem ipsum dolor sit amet.</p>
+            <p>Content 8: Lorem ipsum dolor sit amet.</p>
+        </div>
+    </section>
+
+    <section class="lab">
+        <h2>Lab 5: Sticky Section Headers</h2>
+
+        <div class="sticky-section">
+            <h3 class="sticky-title">HTML</h3>
+            <p>HTML is used to structure web pages.</p>
+        </div>
+
+        <div class="sticky-section">
+            <h3 class="sticky-title">CSS</h3>
+            <p>CSS is used to style web pages.</p>
+        </div>
+
+        <div class="sticky-section">
+            <h3 class="sticky-title">JavaScript</h3>
+            <p>JavaScript adds interaction to web pages.</p>
+        </div>
+    </section>
+
+    <section class="lab">
+        <h2>Lab 6: Fixed Navbar + Sticky Offset</h2>
+
+        <p>Scroll នៅក្នុងប្រអប់ខាងក្រោម ដើម្បីសង្កេត Sticky Header។</p>
+
+        <div class="offset-demo">
+            <div class="offset-navbar">Fixed Navbar (60px)</div>
+
+            <div style="height: 400px; background: #e2e8f0;">
+                <p style="padding: 20px;">Scroll content...</p>
+            </div>
+
+            <h3 class="offset-sticky">Sticky Header (top: 60px)</h3>
+
+            <div style="height: 500px; background: #dbeafe; padding: 20px;">
+                Sticky Header នឹងស្ថិតនៅក្រោម Navbar ពេល Scroll។
+            </div>
+        </div>
+    </section>
+
+    <section class="lab">
+        <h2>Lab 7: Floating Action Button</h2>
+        <p>ប៊ូតុងពណ៌ខៀវនៅជ្រុងស្ដាំខាងក្រោម គឺជា FAB។</p>
+        <p>ចុចវា ដើម្បីត្រឡប់ទៅផ្នែកខាងលើនៃទំព័រ។</p>
+    </section>
+
+    <button class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            aria-label="Back to top">↑</button>
+
+</body>
+</html>
